@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	background-color: #DCDCDC;
+	color: #262626;
+}
+strong {
+	color: #00819E;
+	font-weight: normal; 
+}
+h1 {
+	color: #006A83;
+} 
+a { 
+	color: #00A9C8;
+}
+a:hover {
+	color: #005B6F;
+}
+.navbar {
+	background-color: #F1F1F1;
+	color: #434343;
+}
+.navbar-nav > li:hover {
+	background-color: #BCF0F4;
+	color: #006A83;
+}
+.active, .sr-only {
+	background-color: #DCDCDC;
+}
