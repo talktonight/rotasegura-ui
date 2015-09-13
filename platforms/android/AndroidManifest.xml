@@ -12,9 +12,16 @@
             </intent-filter>
         </activity>
         <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
+        <receiver android:name="jp.wizcorp.phonegap.plugin.localNotification.AlarmReceiver" />
+        <receiver android:name="jp.wizcorp.phonegap.plugin.localNotification.AlarmRestoreOnBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest>

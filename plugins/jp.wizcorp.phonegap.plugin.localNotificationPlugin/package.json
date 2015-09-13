@@ -1,0 +1,22 @@
+{
+    "version": "2.1.0",
+    "name": "jp.wizcorp.phonegap.plugin.localnotificationplugin",
+    "cordova_name": "Local Notification Plugin",
+    "description": "This plugin allows you to add, queue, cancel by id and cancel all local notifications.",
+    "license": "MIT",
+    "keywords": [
+        "local",
+        " notification",
+        " notifications"
+    ],
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}

@@ -48,5 +48,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "jp.wizcorp.phonegap.plugin.localNotificationPlugin": {
+        "source": {
+            "type": "registry",
+            "id": "jp.wizcorp.phonegap.plugin.localnotificationplugin"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

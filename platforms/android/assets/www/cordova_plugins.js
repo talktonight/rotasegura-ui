@@ -22,6 +22,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/jp.wizcorp.phonegap.plugin.localNotificationPlugin/www/phonegap/plugin/localNotification/localNotification.js",
+        "id": "jp.wizcorp.phonegap.plugin.localNotificationPlugin.localNotificationPlugin",
+        "clobbers": [
+            "window.localNotification"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.device/www/device.js",
         "id": "org.apache.cordova.device.device",
         "clobbers": [
@@ -36,6 +43,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.0.0",
     "de.appplant.cordova.plugin.background-mode": "0.6.4",
     "org.apache.cordova.vibration": "0.3.13",
+    "jp.wizcorp.phonegap.plugin.localNotificationPlugin": "2.1.0",
     "org.apache.cordova.device": "0.3.0"
 }
 // BOTTOM OF METADATA

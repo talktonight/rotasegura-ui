@@ -21,11 +21,23 @@
                         {
                             "xml": "<service android:name=\"de.appplant.cordova.plugin.background.ForegroundService\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"jp.wizcorp.phonegap.plugin.localNotification.AlarmReceiver\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"jp.wizcorp.phonegap.plugin.localNotification.AlarmRestoreOnBoot\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /></intent-filter></receiver>",
+                            "count": 1
                         }
                     ],
                     "/manifest": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\" />",
                             "count": 1
                         }
                     ]
@@ -53,6 +65,10 @@
                         {
                             "xml": "<feature name=\"Vibration\"><param name=\"android-package\" value=\"org.apache.cordova.vibration.Vibration\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"LocalNotification\"><param name=\"android-package\" value=\"jp.wizcorp.phonegap.plugin.localNotification.LocalNotification\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -70,6 +86,9 @@
             "PACKAGE_NAME": "br.com.rotasegura"
         },
         "org.apache.cordova.vibration": {
+            "PACKAGE_NAME": "br.com.rotasegura"
+        },
+        "jp.wizcorp.phonegap.plugin.localNotificationPlugin": {
             "PACKAGE_NAME": "br.com.rotasegura"
         }
     },

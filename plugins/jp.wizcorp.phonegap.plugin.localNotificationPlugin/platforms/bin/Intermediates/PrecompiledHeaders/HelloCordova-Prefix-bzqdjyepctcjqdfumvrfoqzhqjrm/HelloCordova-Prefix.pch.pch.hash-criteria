@@ -1,0 +1,25 @@
+Contents of /Users/Ally/Documents/Wizcorp/phonegap-plugin-localNotifications/platforms/ios/HelloCordova/HelloCordova-Prefix.pch
+-x
+objective-c
+-arch
+armv7
+-std=c99
+-fobjc-arc
+-fpascal-strings
+-O0
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk
+-g
+-fvisibility=hidden
+-miphoneos-version-min=5.0
+-iquote
+-iquote
+-I/Users/Ally/Documents/Wizcorp/phonegap-plugin-localNotifications/platforms/bin/Products/Debug-iphoneos/include
+-I/Users/Ally/Documents/Wizcorp/phonegap-plugin-localNotifications/platforms/bin/Products/Debug-iphoneos/usr/local/lib/include
+-I/Users/Ally/Documents/Wizcorp/phonegap-plugin-localNotifications/platforms/bin/Intermediates/UninstalledProducts/include
+-I/Users/Ally/Documents/Wizcorp/phonegap-plugin-localNotifications/platforms/bin/Products/Debug-iphoneos
+-F/Users/Ally/Documents/Wizcorp/phonegap-plugin-localNotifications/platforms/bin/Products/Debug-iphoneos
+arm-apple-darwin13.0.0
+"4.2.1 Compatible Apple LLVM 5.1 (clang-503.0.38)"
+SDK_PRODUCT_BUILD_VERSION=11D167
+11D167

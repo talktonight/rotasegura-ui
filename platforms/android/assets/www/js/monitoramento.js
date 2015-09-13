@@ -61,9 +61,11 @@ function verificarPerigo(data) {
 }
 
 function iniciaAlarme() {
-   cordova.plugins.backgroundMode.configure({
+   localNotification.add(103, {
+      seconds: 1,
       title: 'Região perigosa!',
-      text: 'Procure andar por outro caminho.'
+      message: 'Procure andar por outro caminho.',
+      badge: 2
    });
    emAlarme = true;
    apita();
@@ -79,3 +81,4 @@ function apita() {
    if (emAlarme) 
       alarmeID = setTimeout(apita, 3500);
 }
+

@@ -15,6 +15,9 @@
     <feature name="Vibration">
         <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
     </feature>
+    <feature name="LocalNotification">
+        <param name="android-package" value="jp.wizcorp.phonegap.plugin.localNotification.LocalNotification" />
+    </feature>
     <allow-intent href="market:*" />
     <name>Rota Segura</name>
     <description>
