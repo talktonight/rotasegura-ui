@@ -30,11 +30,11 @@ $("form").submit(function(event) {
       mapa.style.display = 'block';
       btnFechar.style.display = 'block';
       
-      options.center = new google.maps.LatLng(37.774546, -122.433523);
-      
       map = new google.maps.Map(mapa, options);
       directionsDisplay.setMap(map); // Relacionamos o directionsDisplay com o mapa desejado
-      
+
+      // Na lista TODO: fazer a chamada para o backend e obter estes dados.
+      // Usar o objeto com pesos :)
       var heatmapData = [
         new google.maps.LatLng(37.782, -122.447),
         new google.maps.LatLng(37.782, -122.445),
@@ -51,7 +51,7 @@ $("form").submit(function(event) {
         new google.maps.LatLng(37.785, -122.437),
         new google.maps.LatLng(37.785, -122.435)
       ];
-
+      
       var heatmap = new google.maps.visualization.HeatmapLayer({
         data: heatmapData
       });
@@ -60,7 +60,7 @@ $("form").submit(function(event) {
       
       
       if (status == google.maps.DirectionsStatus.OK) { // Se deu tudo certo
-         //directionsDisplay.setDirections(result); // Renderizamos no mapa o resultado
+         directionsDisplay.setDirections(result); // Renderizamos no mapa o resultado
       }
    });
 });
