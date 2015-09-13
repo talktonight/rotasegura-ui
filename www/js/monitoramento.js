@@ -1,30 +1,32 @@
 var watchID, alarmeID, emAlarme = false;
+var check = document.getElementById('monitoramento');
 
-// Armazena como string, o 'false' para ele é true :P
-if (localStorage['monitoramento'] == 'true') {
-   $('#monitoramento').prop('checked', true);
-   iniciaMonitoramento();
-}
+document.addEventListener('deviceready', function() {
+   // Armazena como string, o 'false' para ele é true :P
+   if (localStorage['monitoramento'] == 'true') {
+      check.checked = true;
+      iniciaMonitoramento();
+   }
+});
 
-$('#monitoramento').change(function() {
-   var marcado = $(this).prop('checked');
+check.onchange = function() {
+   var marcado = check.checked;
    localStorage['monitoramento'] = marcado;
    
    if (marcado)
       iniciaMonitoramento();
    else
       finalizaMonitoramento();
-});
-
-document.addEventListener('deviceready', function() {
-   if ($(this).prop('checked')) 
-      iniciaMonitoramento();
-});
+}
 
 function iniciaMonitoramento() {
+   cordova.plugins.backgroundMode.setDefaults({ 
+      title: 'Monitoramento ativado',
+      text:'Saiba quando estiver em uma região perigosa.'
+   });
+   cordova.plugins.backgroundMode.enable();
    watchID = navigator.geolocation.watchPosition(
       onSuccess, onError, { timeout: 30000 });
-   cordova.plugins.backgroundMode.enable();
 }
 
 function finalizaMonitoramento() {
@@ -50,7 +52,7 @@ function onError(error) {
 function verificarPerigo(data) {
    var nota = parseFloat(data);
    
-   if (nota >= 15) {
+   if (nota >= 0.2) {
       if (!emAlarme) 
          iniciaAlarme();
    }
@@ -59,15 +61,21 @@ function verificarPerigo(data) {
 }
 
 function iniciaAlarme() {
-   alarmeID = setInterval(apita, 3500);
+   cordova.plugins.backgroundMode.configure({
+      title: 'Região perigosa!',
+      text: 'Procure andar por outro caminho.'
+   });
    emAlarme = true;
+   apita();
 }
 
 function finalizaAlarme() {
-   clearInterval(alarmeID);
    emAlarme = false;
+   clearTimeout(alarmeID);
 }
 
 function apita() {
    navigator.notification.vibrate(2500);
+   if (emAlarme) 
+      alarmeID = setTimeout(apita, 3500);
 }

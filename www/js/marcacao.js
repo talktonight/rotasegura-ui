@@ -2,29 +2,7 @@ var mapa = document.getElementById('map');
 var marker = null;
 var map;
 
-document.addEventListener('deviceready', function() {
-   var map = new google.maps.Map(mapa, {
-      zoom: 15,
-      disableDefaultUI: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      /*
-      // Tirar ícones do mapa
-      styles: [
-         { featureType: "poi", elementType: "labels", 
-           stylers: [{ visibility: "off" }] }
-      ],
-      */
-      center: { 
-         // USP!!
-         lat: -23.5588181, 
-         lng: -46.730902
-      }
-   });
-   
-   google.maps.event.addListener(map, 'click', function(event) {
-      marca(event.latLng, map);
-   });
-   
+$(document).ready(function() {
    var date = new Date();
    var day = date.getDate();
    var month = date.getMonth() + 1;
@@ -40,6 +18,34 @@ document.addEventListener('deviceready', function() {
    var now = year + "-" + month + "-" + day + 
               'T' + hour + ':' + minute;
    $("#txtDataHora").attr("value", now);
+});
+
+$('#txtDataHora').change(function() {
+   alert($(this).val());
+});
+
+document.addEventListener('deviceready', function() {
+   var map = new google.maps.Map(mapa, {
+      zoom: 15,
+      disableDefaultUI: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      /*
+      // Tirar ícones do mapa
+      styles: [
+         { featureType: "poi", elementType: "labels", 
+           stylers: [{ visibility: "off" }] }
+      ],
+      */
+      center: {
+         // USP!!
+         lat: -23.5588181, 
+         lng: -46.730902
+      }
+   });
+   
+   google.maps.event.addListener(map, 'click', function(event) {
+      marca(event.latLng, map);
+   });
 });
 
 function marca(location, map) {
