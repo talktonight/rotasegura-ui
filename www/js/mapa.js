@@ -67,6 +67,7 @@ function mostraAreaPerigo(dados) {
    });
    heatmap.set('radius', 40);
    heatmap.setMap(map);
+   map.setZoom(15);
 }
 
 function clicouMapa(e) {
