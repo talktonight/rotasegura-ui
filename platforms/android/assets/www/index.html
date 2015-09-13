@@ -64,5 +64,30 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="js/bootstrap.js"></script>
+
+<script src="cordova.js"></script>
+<script>
+document.addEventListener('deviceready', function() {
+
+   var watchID = navigator.geolocation.watchPosition(
+      onSuccess, onError, { timeout: 30000 });
+   cordova.plugins.backgroundMode.enable();
+   
+});
+
+
+function onSuccess(position) {
+   // TODO: notificar quando passar próximo a um ponto de risco
+   
+   //navigator.notification.vibrate(2500);
+}
+
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+</script>
+
 </body>
 </html>
