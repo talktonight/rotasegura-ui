@@ -24,29 +24,27 @@ $('#txtDataHora').change(function() {
    alert($(this).val());
 });
 
-document.addEventListener('deviceready', function() {
-   var map = new google.maps.Map(mapa, {
-      zoom: 15,
-      disableDefaultUI: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      /*
-      // Tirar ícones do mapa
-      styles: [
-         { featureType: "poi", elementType: "labels", 
-           stylers: [{ visibility: "off" }] }
-      ],
-      */
-      center: {
-         // USP!!
-         lat: -23.5588181, 
-         lng: -46.730902
-      }
-   });
+var map = new google.maps.Map(mapa, {
+   zoom: 15,
+   disableDefaultUI: true,
+   mapTypeId: google.maps.MapTypeId.ROADMAP,
+   /*
+   // Tirar ícones do mapa
+   styles: [
+      { featureType: "poi", elementType: "labels", 
+        stylers: [{ visibility: "off" }] }
+   ],
+   */
+   center: {
+      // USP!!
+      lat: -23.5588181, 
+      lng: -46.730902
+   }
+});
    
    google.maps.event.addListener(map, 'click', function(event) {
       marca(event.latLng, map);
    });
-});
 
 function marca(location, map) {
    if (!marker) 

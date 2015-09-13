@@ -50,6 +50,9 @@ a {
 #map img {
    max-width: none;
 }
+img.logo {
+   margin-top: 20px;
+}
 img.math {
    display: block;
    margin: 40px auto;
