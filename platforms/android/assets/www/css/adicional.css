@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 body {
-	background-color: #F3F3F3;
+	background-color: #FFFFFF;
 	color: #262626;
 }
 strong, label {
@@ -14,9 +14,6 @@ h1 {
 } 
 a { 
 	color: #00A9C8;
-}
-a:hover {
-	color: #FFFFFF;
 }
 .navbar {
 	background-color: #FAFAFA;
@@ -53,4 +50,7 @@ a:hover {
 #map img {
    max-width: none;
 }
-
+img.math {
+   display: block;
+   margin: 40px auto;
+}

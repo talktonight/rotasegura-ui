@@ -25,8 +25,8 @@
       <ul class="nav navbar-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="rota.html">Calcular rota</a></li>
-        <li><a href="reportar.html" class="active">Reportar um incidente <span class="sr-only">(current)</span></a></li> 
-        <li><a href="metodologia.html">Metodologia</a></li>
+        <li><a href="reportar.html">Reportar um incidente</a></li> 
+        <li><a href="metodologia.html" class="active">Metodologia <span class="sr-only">(current)</span></a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -36,56 +36,29 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1 class="text-center">Reportar um Incidente</h1>
+      <h1 class="text-center">Metodologia</h1>
     </div>
   </div>
   <hr>
 </div>
-<div class="container text-center col-md-6 col-md-offset-3">
-  <form method="post" role="form">
-         <div class="form-group">
-            <div class="text-justify col-md-pull-6">
-               <p>
-               <label for="txtIncidente">Tipo de incidente:</label> 
-               <br>
-               <select name="txtIncidente">
-               	<option value="assassinato">Assassinato</option>
-               	<option value="furto">Furto</option>
-                <option value="roubo">Roubo</option>
-                <option value="sequestro">Sequestro</option>
-                </select>
-                </p>
-            <br>
-            <p>
-               <label for="arrival-time">Data e horário do ocorrido:</label> 
-               <br>
-               <input id="arrival-time" name="arrival-time " type="datetime-local">
-               </p>
-<br>
-
-               <label>Toque no mapa o local aproximado:</label>
-               <div id="map"></div>               
-               
-			<p>
-               <input type="submit" class="btn btn-default" id="btnEnviar" name="btnEnviar" value="Enviar" />
-               </p>
-               </div>
-         </div>
-      </form>
-  
-    </div>
+<div class="container text-justify col-md-6 col-md-offset-3">
+  <p>O Rota Segura calcula um índice de perigo para qualquer lugar na Cidade Universitária. O índice é baseado em ocorrências de violência documentadas tanto por usuários do Rota Segura quanto por fontes de notícia (como o <em>Jornal do Campus</em> e a <em>Folha de S. Paulo</em>). O índice leva em conta onde e há quanto tempo os indicentes ocorreram. Um lugar terá um índice alto se ocorreram vários indicentes recentes próximos ao local.</p>
+  <p>Matematicamente, o índice de perigo de um ponto <em>p</em> é dado pela seguinte fórmula:</p>
+  <img class="math" alt="perigo(p) = \sum_{i=1}^{n} \frac{1}{\alpha + dist(p, p_i)} \times \frac{1}{\sqrt{\beta + tempo(t_i)}}"  src="img/formula.png">
+  <p>onde <em>{p1, ..., pn}</em> são os locais das ocorrências próximas a <em>p</em> (dentro de um raio <em>&gamma;</em>).</p>
+  <img class="math" alt="Diagrama" src="img/diagrama.png">
+  <p>Quando um usuário do Rota Segura anda por um local perigoso, recebe um alerta do aplicativo.</p>
+  <p>O Rota Segura é software livre e seu código está disponível no GitHub:</p>
+  <ul>
+    <li>Back-end: <a href="http://github.com/andre-yai/rotasegura">andre-yai/rotasegura</a></li>
+    <li>Front-end: <a href="http://github.com/veronicastocco/rotasegura-ui">veronicastocco/rotasegura-ui</a></li>
+  </ul>
+</div>
   
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery-1.11.2.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="js/bootstrap.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHqMhBw4bppEBwApC1DhufHrlTtWcXZjw&libraries=visualization&sensor=true_or_false">
-</script>
-
-<script src="cordova.js"></script>
-<script src="js/servidor.js"></script>
-<script src="js/marcacao.js"></script>
 </body>
 </html>

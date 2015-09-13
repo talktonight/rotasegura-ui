@@ -32,8 +32,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.0.0",
     "cordova-plugin-geolocation": "1.0.2-dev",
+    "cordova-plugin-whitelist": "1.0.0",
     "de.appplant.cordova.plugin.background-mode": "0.6.4",
     "org.apache.cordova.vibration": "0.3.13",
     "org.apache.cordova.device": "0.3.0"
