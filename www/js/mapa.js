@@ -6,7 +6,7 @@ var directionsDisplay = new google.maps.DirectionsRenderer({
 
 var options = {
    zoom: 15,
-   /*disableDefaultUI: true,*/
+   disableDefaultUI: true,
    mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
@@ -41,12 +41,13 @@ function tracaRota(result, status) {
    
    map = new google.maps.Map(mapa, options);
    directionsDisplay.setMap(map);
+   map.addListener('click', clicouMapa);
    
    if (status == google.maps.DirectionsStatus.OK) { 
       directionsDisplay.setDirections(result); 
    }
    
-   $.get('http://localhost:3000/ocorrencias', mostraAreaPerigo);
+   $.get('http://eb8f1c09.ngrok.io/ocorrencias', mostraAreaPerigo);
 }
 
 function mostraAreaPerigo(dados) {
@@ -56,12 +57,25 @@ function mostraAreaPerigo(dados) {
    for (var i in pontos) {
       lat = pontos[i].loc[0];
       lng = pontos[i].loc[1];
-      heatmapData.push(new google.maps.LatLng(lat, lng));
+      heatmapData.push({
+         location: new google.maps.LatLng(lat, lng),
+         radius: Math.random
+      });
    }
       
    var heatmap = new google.maps.visualization.HeatmapLayer({
      data: heatmapData
    });
-   
+   heatmap.set('radius', 20);
    heatmap.setMap(map);
+}
+
+function clicouMapa(e) {
+   $.get('http://eb8f1c09.ngrok.io/perigo?lat=' +
+         e.latLng.lat() + 
+         '&lon=' + e.latLng.lng(),
+         function(data) {
+            console.log(data);
+         }
+   );
 }
