@@ -47,7 +47,7 @@ function tracaRota(result, status) {
       directionsDisplay.setDirections(result); 
    }
    
-   $.get('http://localhost:3000/ocorrencias', mostraAreaPerigo);
+   $.get(SERVIDOR + '/ocorrencias', mostraAreaPerigo);
 }
 
 function mostraAreaPerigo(dados) {
@@ -71,8 +71,7 @@ function mostraAreaPerigo(dados) {
 }
 
 function clicouMapa(e) {
-   $.get('http://localhost:3000/perigo?lat=' +
-         e.latLng.lat() + 
+   $.get(SERVIDOR + '/perigo?lat=' + e.latLng.lat() + 
          '&lon=' + e.latLng.lng(),
          function(data) {
             console.log(data);

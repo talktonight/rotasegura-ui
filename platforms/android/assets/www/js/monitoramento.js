@@ -3,7 +3,7 @@ var watchID, alarmeID, emAlarme = false;
 // Armazena como string, o 'false' para ele é true :P
 if (localStorage['monitoramento'] == 'true') {
    $('#monitoramento').prop('checked', true);
-   inicia();
+   iniciaMonitoramento();
 }
 
 $('#monitoramento').change(function() {
@@ -11,34 +11,32 @@ $('#monitoramento').change(function() {
    localStorage['monitoramento'] = marcado;
    
    if (marcado)
-      inicia();
+      iniciaMonitoramento();
    else
-      finaliza();
+      finalizaMonitoramento();
 });
 
 document.addEventListener('deviceready', function() {
-   if ($(this).prop('checked')) inicia();
+   if ($(this).prop('checked')) 
+      iniciaMonitoramento();
 });
 
-function inicia() {
+function iniciaMonitoramento() {
    watchID = navigator.geolocation.watchPosition(
       onSuccess, onError, { timeout: 30000 });
    cordova.plugins.backgroundMode.enable();
 }
 
-function finaliza() {
+function finalizaMonitoramento() {
    navigator.geolocation.clearWatch(watchID);
    cordova.plugins.backgroundMode.disable();
    
-   if (emAlarme) {
-      clearInterval(alarmeID);
-      emAlarme = false;   
-   }
+   if (emAlarme) 
+      finalizaAlarme();
 }
 
-
 function onSuccess(position) {
-   $.get('http://eb8f1c09.ngrok.io/perigo?lat=' +
+   $.get(SERVIDOR + '/perigo?lat=' +
          position.coords.latitude + 
          '&lon=' + position.coords.longitude,
          verificarPerigo);
@@ -52,14 +50,22 @@ function onError(error) {
 function verificarPerigo(data) {
    var nota = parseFloat(data);
    
-   if (nota >= 15 && !emAlarme) {
-      alarmeID = setInterval(apita, 3500);
-      emAlarme = true;
+   if (nota >= 15) {
+      if (!emAlarme) 
+         iniciaAlarme();
    }
-   else {
-      clearInterval(alarmeID);
-      emAlarme = false;
-   }
+   else 
+      finalizaAlarme();
+}
+
+function iniciaAlarme() {
+   alarmeID = setInterval(apita, 3500);
+   emAlarme = true;
+}
+
+function finalizaAlarme() {
+   clearInterval(alarmeID);
+   emAlarme = false;
 }
 
 function apita() {
