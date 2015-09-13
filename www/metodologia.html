@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rota Segura USP</title>
+<title>Rota Segura USP - Reportar um Incidente</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -23,10 +23,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="rota.html">Calcular Rota</a></li>
-        <li><a href="reportar.html">Reportar um incidente</a></li>
-        <li><a href="metodologia.html">Metodologia</a></li>
+        <li><a href="reportar.html">Reportar um incidente</a></li> 
+        <li><a href="metodologia.html" class="active">Metodologia <span class="sr-only">(current)</span></a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -36,36 +36,21 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1 class="text-center">Rota Segura USP</h1>
+      <h1 class="text-center">Reportar um Incidente</h1>
     </div>
   </div>
   <hr>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="text-justify col-sm-4">
-      <p> O <strong>Rota Segura</strong> é um aplicativo criado por alunos do IME USP com o objetivo de calcular a rota de menor risco para ir de A à B no campus Butantã. </p>
-      <p>&nbsp;</p>
+<div class="container text-justify col-md-6 col-md-offset-3">
+ [your text goes here]
+
+    <hr>
     </div>
-    <div class="col-sm-4 text-justify">
-      <p>Ele envia notificações ao seu celular caso você esteja se aproximando de uma região do campus que é considerada <strong>de risco</strong>.</p>
-      <p>&nbsp;</p>
-    </div>
-    <div class="col-sm-4 text-justify">
-      <input type="checkbox" id="monitoramento" value="S">
-      <label for="monitoramento">Monitorar locais perigosos</label>
-    </div>
-  </div>
-  <hr>
-</div>
+  
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery-1.11.2.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="js/bootstrap.js"></script>
-
-<script src="cordova.js"></script>
-<script src="js/monitoramento.js"></script>
-
 </body>
 </html>
