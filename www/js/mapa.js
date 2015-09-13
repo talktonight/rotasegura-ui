@@ -29,7 +29,7 @@ function mostraMapa(event) {
    var request = { 
       origin: enderecoPartida, 
       destination: enderecoChegada, 
-      travelMode: google.maps.TravelMode.DRIVING
+      travelMode: google.maps.TravelMode.WALKING
    };
  
    directionsService.route(request, tracaRota);
@@ -47,7 +47,7 @@ function tracaRota(result, status) {
       directionsDisplay.setDirections(result); 
    }
    
-   $.get('http://eb8f1c09.ngrok.io/ocorrencias', mostraAreaPerigo);
+   $.get('http://localhost:3000/ocorrencias', mostraAreaPerigo);
 }
 
 function mostraAreaPerigo(dados) {
@@ -58,20 +58,19 @@ function mostraAreaPerigo(dados) {
       lat = pontos[i].loc[0];
       lng = pontos[i].loc[1];
       heatmapData.push({
-         location: new google.maps.LatLng(lat, lng),
-         radius: Math.random
+         location: new google.maps.LatLng(lat, lng)
       });
    }
       
    var heatmap = new google.maps.visualization.HeatmapLayer({
      data: heatmapData
    });
-   heatmap.set('radius', 20);
+   heatmap.set('radius', 40);
    heatmap.setMap(map);
 }
 
 function clicouMapa(e) {
-   $.get('http://eb8f1c09.ngrok.io/perigo?lat=' +
+   $.get('http://localhost:3000/perigo?lat=' +
          e.latLng.lat() + 
          '&lon=' + e.latLng.lng(),
          function(data) {
